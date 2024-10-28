@@ -13,11 +13,8 @@ The time series data is obtained from FRED. Each dataset consists of the change 
 * Packages that should be installed in Python:
   * Numpy
   * Pandas
-  * Scikit-learn
-  * Matplotlib
-  * Seaborn
-  * Wordcloud
-  * VaderSentiment
+  * VAR
+  * adfuller
   
 * Platform: Windows 10, MacOS
 
@@ -25,41 +22,42 @@ The time series data is obtained from FRED. Each dataset consists of the change 
 
 * Files (Outline)
   * DATA - Folder
+    * cleaned_data
+    * original_data
     * DataAppendix.pdf
-    * data.md
+  * OUTPUT - Folder
+    * IN PROGRESS
   * SCRIPTS - Folder
     * modeling.ipynb
     * preprocessing.ipynb
-  * OUTPUT - Folder
-    * IN PROGRESS 
   * LICENSE.md
   * README.md
 
 ## Section 3: Instructions for reproducing our results
 
 * preprocessing.ipynb
-  * Import software packages (os, numpy, seaborn, matplotlib, sklearn, and pandas) into python notebook
-  * Copy data files found in data.md into your own Google Drive 
-  * Define and load book_data.csv and Books_rating.csv by connecting to Google Drive 
-  * Determine each dataset's categories with '.info()' and use it for the project
-  * Use '.head' method for both books and reviews datasets to return the first few rows of each dataset
-  * Preprocessing (Clear missing values)
-    * Rename columns and drops NaNs from important variables
-    * Split helpfulness column for better understand
-  * VADER Sentiment Score Assignment
-    * Install '!pip install vaderSentiment' 
-    * Create features (e.g. text_word_count and summary_word_count) for analysis purposes if needed
-    * Save cleaned data
+  * Import software packages (pandas, matplotlib, numpy) into python notebook
+  * Define and return all time series data from data folder as data frames
+  * Load all time series data from data folder in Google Drive
+  * Generate time series data and reword columns based on your name preference
+  * Combine data into several possibly useful frames and rename columns
+  * Combine CPI and Inflation DataFrames; Merge Real Estate Loan Data; Merge Real Estate Price Data; Merge Mortgage Data
+  * Save cleaned data as a csv file in Google Drive
   
 * modeling.ipynb
-  * Download cleaned version of books_data and reviews_data (known as books_cleaned.csv and reviews_cleaned.csv) resulting from the preprocessing steps
-  * Define and load both datasets in python
-  * Establish the categories for the respective datasets with '.info()'
-  * Import train_test_split and DecisionTreeRegressor to split the dataset and perform tests
-  * Prepare the features (X) and target (y)
-  * Create a DataFrame to show feature importance 
-  * Evaluate accuracy of the model and calculate accuracy with a 10% tolerance
-  * Generate additional metrics, such as mean absolute error and variance
+  * Import software packages (pandas, matplotlib, matplotlib.dates, numpy) into python notebook
+  * Use combined_2010.csv to analyze economic data from the year 2010 to 2024
+  * Plot the change in quantity of real estate loans over time
+  * Plot the change in value of the financial metrics (mortgage rate, inflation rate, CPI percent change, real estate price change) over time
+  * Plot the change in value of the financial metrics (mortgage rate, inflation rate, and CPI percent change) over time
+  * Import VAR and adfuller from statsmodels.tsa.api
+  * Check stationarity for each variable
+  * Fit VAR model
+  * Determine optimal lag order
+  * Get the last observed values for forecasting
+  * Forecast for 10 years
+  * Convert forecast to DataFrame for easier handling
+  * Plot graphs for mortgage rate and 3-
  
 * sentiment_analysis.ipynb
   * Merge the books and reviews cleaned datasets on key 'book_title', so that each review observation contains all associated book data
@@ -87,4 +85,9 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* https://www.kaggle.com/datasets/mohamedbakhet/amazon-books-reviews
+* https://fred.stlouisfed.org/series/CORESTICKM159SFRBATL
+* https://fred.stlouisfed.org/searchresults/?st=inflation&isTst=1
+* https://fred.stlouisfed.org/series/MORTGAGE30US
+* https://fred.stlouisfed.org/series/CREACBW027SBOG
+* https://fred.stlouisfed.org/series/COMREPUSQ159N
+
