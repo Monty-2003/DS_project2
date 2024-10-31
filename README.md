@@ -26,7 +26,6 @@ The time series data is obtained from FRED. Each dataset consists of the change 
     * original_data
     * DataAppendix.pdf
   * OUTPUT - Folder
-    * IN PROGRESS
   * SCRIPTS - Folder
     * modeling.ipynb
     * preprocessing.ipynb
@@ -57,17 +56,10 @@ The time series data is obtained from FRED. Each dataset consists of the change 
   * Get the last observed values for forecasting
   * Forecast for 10 years
   * Convert forecast to DataFrame for easier handling
-  * Plot graphs for mortgage rate and 3-
- 
-* sentiment_analysis.ipynb
-  * Merge the books and reviews cleaned datasets on key 'book_title', so that each review observation contains all associated book data
-  * Statistically describe vader_sentiment variable and a visualization of the distribution of VADER sentiment scores
-  * Create categorical variable of positive, negative, and neutral to visualize overall sentiment trends
-  * Investigate negative sentiment reviews (< -0.5) and their associated review scores
-  * Evaluate breakdown of books with most recieved negative sentiment reviews
-  * Evaluate breakdown of authors with most recieved negative sentiment reviews
-  * Explore distribution of each review sentment category with boxplot
-
+  * Plot respective graphs for mortgage rate, inflation, CPI, RE prices with their 3-year moving averages (2010-2025)
+  * Plot the 3yr Averaged Financial Metrics over time
+  * Check stationarity for each variable
+  * Fit dataframe into VAR model and forecast for 10 years
 
 ## Authors
 
